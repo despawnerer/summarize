@@ -7,3 +7,9 @@ Usage
 -----
 
     $ python summarize.py text_to_summarize.txt
+
+Online demo
+-----------
+
+https://evening-atoll-8940.herokuapp.com/
+
