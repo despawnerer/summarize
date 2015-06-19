@@ -9,25 +9,26 @@ from operator import itemgetter
 
 from distance import jaccard
 from networkx import Graph, pagerank
-from pattern.en import tokenize
-from pattern.vector import Document, LEMMA
+from nltk import corpus, tokenize
 
 
-def summarize(text, sentence_count=2):
-    sentence_list = tokenize(text)
+def get_words(sentence, stopwords):
+    return filter(
+        lambda word: word not in stopwords and word.isalnum(),
+        tokenize.word_tokenize(sentence))
 
-    # each document's name is the sentence's original index
-    # so that we can put them back together later
-    docs = [Document(string=sentence, name=index, stemmer=LEMMA)
-            for index, sentence in enumerate(sentence_list)]
+
+def summarize(text, sentence_count=2, language='english'):
+    stopwords = corpus.stopwords.words(language)
+    sentence_list = tokenize.sent_tokenize(text, language)
+    wordsets = [get_words(sentence, stopwords) for sentence in sentence_list]
 
     graph = Graph()
-    for doc_a, doc_b in combinations(docs, 2):
-        wordset_a = [x[1] for x in doc_a.keywords()]
-        wordset_b = [y[1] for y in doc_b.keywords()]
-        similarity = 1 - jaccard(wordset_a, wordset_b)
+    pairs = combinations(enumerate(wordsets), 2)
+    for (index_a, words_a), (index_b, words_b) in pairs:
+        similarity = 1 - jaccard(words_a, words_b)
         if similarity > 0:
-            graph.add_edge(doc_a.name, doc_b.name, weight=similarity)
+            graph.add_edge(index_a, index_b, weight=similarity)
 
     ranked_sentence_indexes = pagerank(graph).items()
     sentences_by_rank = sorted(
