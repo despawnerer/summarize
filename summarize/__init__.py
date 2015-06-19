@@ -1,9 +1,6 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-import sys
-import codecs
 from itertools import combinations
 from operator import itemgetter
 
@@ -12,16 +9,10 @@ from networkx import Graph, pagerank
 from nltk import corpus, tokenize
 
 
-def get_words(sentence, stopwords):
-    return filter(
-        lambda word: word not in stopwords and word.isalnum(),
-        tokenize.word_tokenize(sentence))
-
-
 def summarize(text, sentence_count=5, language='english'):
     stopwords = corpus.stopwords.words(language)
     sentence_list = tokenize.sent_tokenize(text, language)
-    wordsets = [get_words(sentence, stopwords) for sentence in sentence_list]
+    wordsets = [_get_words(sentence, stopwords) for sentence in sentence_list]
 
     graph = Graph()
     pairs = combinations(enumerate(wordsets), 2)
@@ -39,7 +30,7 @@ def summarize(text, sentence_count=5, language='english'):
     return ' '.join(sentence_list[index] for index in best_sentences_in_order)
 
 
-if __name__ == "__main__":
-    filename = sys.argv[1]
-    with codecs.open(filename, encoding='utf-8') as f:
-        print summarize(f.read())
+def _get_words(sentence, stopwords):
+    return filter(
+        lambda word: word not in stopwords and word.isalnum(),
+        tokenize.word_tokenize(sentence))
