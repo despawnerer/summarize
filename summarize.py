@@ -18,7 +18,7 @@ def get_words(sentence, stopwords):
         tokenize.word_tokenize(sentence))
 
 
-def summarize(text, sentence_count=2, language='english'):
+def summarize(text, sentence_count=5, language='english'):
     stopwords = corpus.stopwords.words(language)
     sentence_list = tokenize.sent_tokenize(text, language)
     wordsets = [get_words(sentence, stopwords) for sentence in sentence_list]
@@ -42,4 +42,4 @@ def summarize(text, sentence_count=2, language='english'):
 if __name__ == "__main__":
     filename = sys.argv[1]
     with codecs.open(filename, encoding='utf-8') as f:
-        print summarize(f.read(), 5)
+        print summarize(f.read())
