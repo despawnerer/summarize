@@ -2,8 +2,8 @@ from setuptools import setup, find_packages
 
 setup(
     name='summarize',
-    version='0.2.0',
-    description='Implementation of Flipboard\'s summarization algorithm',
+    version='0.2.1',
+    description='Simple Python and NLTK-based implementation of text summarization',
     url='https://github.com/despawnerer/summarize',
     author='Aleksei Voronov',
     author_email='despawn@gmail.com',

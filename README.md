@@ -1,7 +1,7 @@
 summarize.py
 ============
 
-Quick python-based implementation of Flipboard's summarization algorithm.
+Simple Python and NLTK-based implementation of text summarization.
 
 
 Setup
@@ -27,3 +27,8 @@ Online demo
 -----------
 
 https://evening-atoll-8940.herokuapp.com/
+
+
+Credits
+-------
+Original description of the algorithm: http://engineering.flipboard.com/2014/10/summarization/
