@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='summarize',
-    version='0.2.1',
+    version='0.2.2',
     description='Simple Python and NLTK-based implementation of text summarization',
     url='https://github.com/despawnerer/summarize',
     author='Aleksei Voronov',
