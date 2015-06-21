@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from itertools import combinations
 from operator import itemgetter
+from funcy import memoize
 
 from distance import jaccard
 from networkx import Graph, pagerank
@@ -10,7 +11,7 @@ from nltk import corpus, tokenize
 
 
 def summarize(text, sentence_count=5, language='english'):
-    stopwords = corpus.stopwords.words(language)
+    stopwords = _get_stopwords(language)
     sentence_list = tokenize.sent_tokenize(text, language)
     wordsets = [_get_words(sentence, stopwords) for sentence in sentence_list]
 
@@ -34,3 +35,8 @@ def _get_words(sentence, stopwords):
     return filter(
         lambda word: word not in stopwords and word.isalnum(),
         tokenize.word_tokenize(sentence))
+
+
+@memoize
+def _get_stopwords(language):
+    return set(corpus.stopwords.words(language))
