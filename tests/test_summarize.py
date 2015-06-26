@@ -17,3 +17,9 @@ class SummarizeTestCase(TestCase):
             " mortal enemy — Mr. Boredom. He is ugly and mean. They"
             " will surely defeat him. He is no match for their abilities.")
         self.assertTrue(bool(text))
+
+    def test_doesnt_crash_on_empty_sentences(self):
+        try:
+            summarize('. . .')
+        except Exception as e:
+            self.fail(e)

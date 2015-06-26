@@ -17,7 +17,7 @@ def summarize(text, sentence_count=5, language='english'):
     wordsets = [get_words(sentence, stopwords) for sentence in sentence_list]
 
     graph = Graph()
-    pairs = combinations(enumerate(wordsets), 2)
+    pairs = combinations(enumerate(filter(None, wordsets)), 2)
     for (index_a, words_a), (index_b, words_b) in pairs:
         similarity = 1 - jaccard(words_a, words_b)
         if similarity > 0:
