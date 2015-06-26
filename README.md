@@ -7,7 +7,10 @@ Simple Python and NLTK-based implementation of text summarization.
 Setup
 -----
 
-Before using, call `import nltk; nltk.download()` from a python shell and download `stopwords` and `punkt` packages.
+Before using, make sure you have `stopwords` and `punkt` NLTK packages downloaded:
+
+	import nltk
+	nltk.download(['stopwords', 'punkt'])
 
 
 Usage
