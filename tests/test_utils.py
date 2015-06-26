@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-import nltk
 from unittest import TestCase
 
 from summarize.utils import get_words, get_stopwords
@@ -13,7 +12,6 @@ class GetWordsTestCase(TestCase):
 
     @classmethod
     def setUpClass(cls):
-        nltk.download(['stopwords'])
         cls.stopwords = get_stopwords('english')
 
     def test_no_punctuation(self):
@@ -26,10 +24,6 @@ class GetWordsTestCase(TestCase):
 
 
 class GetStopwordsTestCase(TestCase):
-    @classmethod
-    def setUpClass(cls):
-        nltk.download(['stopwords'])
-
     def test_returns_non_empty_set(self):
         stopwords = get_stopwords('english')
         self.assertGreater(len(stopwords), 0)

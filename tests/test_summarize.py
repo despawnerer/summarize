@@ -1,17 +1,12 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-import nltk
 from unittest import TestCase
 
 from summarize import summarize
 
 
 class SummarizeTestCase(TestCase):
-    @classmethod
-    def setUpClass(cls):
-        nltk.download(['punkt', 'stopwords'])
-
     def test_that_it_runs(self):
         text = summarize(
             "Alice and Bob are friends. Alice is fun and cuddly."
