@@ -33,7 +33,7 @@ summarize(u"Alice and Bob are friends. Alice is fun and cuddly."
 Online demo
 -----------
 
-https://evening-atoll-8940.herokuapp.com/
+http://summarize.plansfortheday.org/
 
 
 Credits
