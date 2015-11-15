@@ -17,11 +17,12 @@ def summarize(text, sentence_count=5, language='english'):
     wordsets = [get_words(sentence, stopwords) for sentence in sentence_list]
 
     graph = Graph()
-    pairs = combinations(enumerate(filter(None, wordsets)), 2)
+    pairs = combinations(enumerate(wordsets), 2)
     for (index_a, words_a), (index_b, words_b) in pairs:
-        similarity = 1 - jaccard(words_a, words_b)
-        if similarity > 0:
-            graph.add_edge(index_a, index_b, weight=similarity)
+        if words_a and words_b:
+            similarity = 1 - jaccard(words_a, words_b)
+            if similarity > 0:
+                graph.add_edge(index_a, index_b, weight=similarity)
 
     ranked_sentence_indexes = pagerank(graph).items()
     sentences_by_rank = sorted(
