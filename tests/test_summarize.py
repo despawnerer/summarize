@@ -23,3 +23,21 @@ class SummarizeTestCase(TestCase):
             summarize('. . .')
         except Exception as e:
             self.fail(e)
+
+    def test_single_sentence(self):
+        text = "Alice is awesome"
+        summary = summarize(text)
+        self.assertEqual(text, summary)
+
+    def test_when_there_arent_any_words_in_common(self):
+        text = (
+            "Alice is awesome. I'm hot and you're not. This is pretty sick. "
+            "We are all divisive. Nothing common between these sentences. "
+            "And here's one more example of that happening."
+        )
+        summary = summarize(text)
+        self.assertEqual(
+            summary,
+            "Alice is awesome. I'm hot and you're not. This is pretty sick. "
+            "We are all divisive. Nothing common between these sentences."
+        )
