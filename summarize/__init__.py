@@ -6,15 +6,14 @@ from operator import itemgetter
 
 from distance import jaccard
 from networkx import Graph, pagerank
-from nltk import tokenize
 
-from .utils import get_stopwords, get_words
+from .language import split_sentences, split_words, get_stopwords
 
 
 def summarize(text, sentence_count=5, language='english'):
     stopwords = get_stopwords(language)
-    sentence_list = tokenize.sent_tokenize(text, language)
-    wordsets = [get_words(sentence, stopwords) for sentence in sentence_list]
+    sentence_list = split_sentences(text, language)
+    wordsets = [split_words(sentence, stopwords) for sentence in sentence_list]
 
     graph = Graph()
     pairs = combinations(enumerate(wordsets), 2)

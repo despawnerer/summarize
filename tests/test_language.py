@@ -3,10 +3,10 @@ from __future__ import unicode_literals
 
 from unittest import TestCase
 
-from summarize.utils import get_words, get_stopwords
+from summarize.language import split_words, get_stopwords
 
 
-class GetWordsTestCase(TestCase):
+class SplitWordsTestCase(TestCase):
     sample_sentence = ("But before they get to them, they have to go "
                        "past their mortal enemy — Mr. Boredom")
 
@@ -15,11 +15,11 @@ class GetWordsTestCase(TestCase):
         cls.stopwords = get_stopwords('english')
 
     def test_no_punctuation(self):
-        words = get_words(self.sample_sentence, self.stopwords)
+        words = split_words(self.sample_sentence, self.stopwords)
         self.assertTrue(all(word not in ',.—' for word in words))
 
     def test_no_stopwords(self):
-        words = get_words(self.sample_sentence, self.stopwords)
+        words = split_words(self.sample_sentence, self.stopwords)
         self.assertTrue(all(word not in self.stopwords for word in words))
 
 
