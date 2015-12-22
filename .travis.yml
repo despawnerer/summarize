@@ -5,6 +5,7 @@ python:
   - "3.5"
   - "pypy"
   - "pypy3"
-script: nosetests
 install:
   - python setup.py -q install
+  - "python -c \"import nltk; nltk.download(['stopwords', 'punkt'])\""
+script: nosetests
