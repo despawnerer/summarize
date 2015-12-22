@@ -6,3 +6,5 @@ python:
   - "pypy"
   - "pypy3"
 script: nosetests
+install:
+  - python setup.py -q install
