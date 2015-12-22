@@ -6,6 +6,9 @@ from funcy import memoize
 from nltk import corpus, tokenize
 
 
+__all__ = ['split_sentences', 'split_words', 'get_stopwords']
+
+
 def split_sentences(text, language):
     return tokenize.sent_tokenize(text, language)
 

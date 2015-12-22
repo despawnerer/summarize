@@ -10,6 +10,9 @@ from networkx import Graph, pagerank
 from .language import split_sentences, split_words, get_stopwords
 
 
+__all__ = ['summarize']
+
+
 def summarize(text, sentence_count=5, language='english'):
     stopwords = get_stopwords(language)
     sentence_list = split_sentences(text, language)
