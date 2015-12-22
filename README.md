@@ -1,6 +1,8 @@
 summarize.py
 ============
 
+[![Build Status](https://travis-ci.org/despawnerer/summarize.svg?branch=master)](https://travis-ci.org/despawnerer/summarize)
+
 Simple Python and NLTK-based implementation of text summarization.
 
 
