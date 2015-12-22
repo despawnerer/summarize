@@ -4,6 +4,12 @@ summarize.py
 Simple Python and NLTK-based implementation of text summarization.
 
 
+Installation
+------------
+
+	$ pip install pysummarize
+
+
 Setup
 -----
 
