@@ -14,13 +14,17 @@ def summarize(text, sentence_count=5, language='english'):
     processor = LanguageProcessor(language)
 
     sentence_list = processor.split_sentences(text)
-    wordsets = map(processor.extract_significant_words, sentence_list)
+    wordset_list = map(processor.extract_significant_words, sentence_list)
+    stemsets = [
+        {processor.stem(word) for word in wordset}
+        for wordset in wordset_list
+    ]
 
     graph = Graph()
-    pairs = combinations(enumerate(wordsets), 2)
-    for (index_a, words_a), (index_b, words_b) in pairs:
-        if words_a and words_b:
-            similarity = 1 - jaccard(words_a, words_b)
+    pairs = combinations(enumerate(stemsets), 2)
+    for (index_a, stems_a), (index_b, stems_b) in pairs:
+        if stems_a and stems_b:
+            similarity = 1 - jaccard(stems_a, stems_b)
             if similarity > 0:
                 graph.add_edge(index_a, index_b, weight=similarity)
 
