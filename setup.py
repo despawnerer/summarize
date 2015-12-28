@@ -27,6 +27,5 @@ setup(
         'Distance>=0.1.3',
         'networkx>=1.9.1',
         'nltk>=3.0.3',
-        'funcy>=1.5',
     ],
 )
