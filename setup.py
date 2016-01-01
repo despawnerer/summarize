@@ -2,8 +2,8 @@ from setuptools import setup, find_packages
 
 setup(
     name='pysummarize',
-    version='0.5.0',
-    description='Simple Python and NLTK-based implementation of text summarization',
+    version='0.6.0',
+    description='Simple multi-language Python and NLTK-based implementation of text summarization',
     url='https://github.com/despawnerer/summarize',
     author='Aleksei Voronov',
     author_email='despawn@gmail.com',
@@ -14,6 +14,7 @@ setup(
         'Operating System :: OS Independent',
         'Topic :: Text Processing',
         'Natural Language :: English',
+        'Natural Language :: Spanish',
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
