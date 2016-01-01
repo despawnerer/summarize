@@ -47,6 +47,29 @@ summarize("Alice and Bob are friends. Alice is fun and cuddly."
 ```
 
 
+Supported languages
+-------------------
+
+In theory, any language with full support in NLTK (stemming, sentence tokenization and stopwords) should work.
+
+### Working
+
+- English
+- Spanish
+
+### Supported by NLTK, but untested results
+
+- Danish
+- Dutch
+- Finnish
+- French
+- German
+- Italian
+- Norwegian
+- Portuguese
+- Swedish
+
+
 Online demo
 -----------
 
