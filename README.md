@@ -26,6 +26,15 @@ nltk.download(['stopwords', 'punkt'])
 Usage
 -----
 
+	summarize(text[, sentence_count=5, language='english'])
+
+- `text` — text to be summarized
+- `sentence_count` — number of sentences in the result
+- `language` — language that the text is in (lowercase)
+
+
+### Example
+
 ```python
 from summarize import summarize
 summarize("Alice and Bob are friends. Alice is fun and cuddly."
