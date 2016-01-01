@@ -41,7 +41,7 @@ summarize(u"Alice and Bob are friends. Alice is fun and cuddly."
 Online demo
 -----------
 
-http://summarize.plansfortheday.org/
+http://summarize.plansfortheday.org/ ([source](https://github.com/despawnerer/summarize-demo))
 
 
 Credits
