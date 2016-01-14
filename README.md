@@ -2,6 +2,7 @@ summarize.py
 ============
 
 [![Build Status](https://travis-ci.org/despawnerer/summarize.svg?branch=master)](https://travis-ci.org/despawnerer/summarize)
+[![PyPI version](https://badge.fury.io/py/pysummarize.svg)](https://badge.fury.io/py/pysummarize)
 
 Simple multi-language Python and NLTK-based implementation of text summarization.
 
