@@ -88,4 +88,4 @@ http://summarize.plansfortheday.org/ ([source](https://github.com/despawnerer/su
 
 Credits
 -------
-Original description of the algorithm: http://engineering.flipboard.com/2014/10/summarization/
+Original description of the algorithm: https://web.archive.org/web/20170825024342/http://engineering.flipboard.com/2014/10/summarization/
